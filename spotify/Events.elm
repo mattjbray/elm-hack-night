@@ -27,4 +27,4 @@ is13 code =
 
 onChange : Address a -> (String -> a) -> Html.Attribute
 onChange address f =
-  on "change" targetValue (message (forwardTo address f))
+  on "input" targetValue (message (forwardTo address f))

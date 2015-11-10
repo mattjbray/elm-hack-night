@@ -3,6 +3,7 @@ import Effects exposing (Never)
 import Search
 import StartApp
 import Task
+import Time
 
 
 app =
@@ -10,7 +11,7 @@ app =
     { init = Search.init
     , update = Search.update
     , view = Search.view
-    , inputs = []
+    , inputs = [Signal.map Search.SetScroll scrollFromBottom]
     }
 
 
@@ -22,4 +23,4 @@ port tasks : Signal (Task.Task Never ())
 port tasks =
   app.tasks
 
-
+port scrollFromBottom : Signal Int
